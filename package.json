@@ -1,0 +1,51 @@
+{
+  "name": "easywind",
+  "version": "0.1.0",
+  "description": "A lightweight, customizable CSS framework inspired by Bootstrap, built for rapid and responsive web development. Streamline your workflow with pre-designed components, flexible grid systems, and utility classes—all in a breeze.",
+  "main": "dist/easywind.min.css",
+  "directories": {
+    "example": "examples",
+    "dist": "dist",
+    "src": "src"
+  },
+  "scripts": {
+    "build:win": "cmd.exe /c build.bat",
+    "build:unix": "sh build.sh",
+    "build": "npm run build:win",
+    "watch:win": "npx chokidar \"src/**/*.css\" \"src/**/*.js\" -c \"build.bat\"",
+    "watch:unix": "npx chokidar 'src/**/*.css' 'src/**/*.js' -c './build.sh'",
+    "watch": "npm run watch:win || npm run watch:unix",
+    "start": "npm run build && live-server examples",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KumarjitDas/easywind.git"
+  },
+  "keywords": [
+    "easywind",
+    "css",
+    "framework",
+    "responsive",
+    "grid",
+    "flex",
+    "modern",
+    "utility-first",
+    "bootstrap-alternative"
+  ],
+  "author": "Kumarjit Das",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/KumarjitDas/easywind/issues"
+  },
+  "homepage": "https://github.com/KumarjitDas/easywind#readme",
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "cssnano": "^5.1.15",
+    "live-server": "^1.2.0",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1"
+  }
+}

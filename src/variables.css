@@ -1,0 +1,11 @@
+:root {
+  --ew-spacer-0: 0;
+  --ew-spacer-1: 0.25rem;
+  --ew-spacer-2: 0.5rem;
+  --ew-spacer-3: 1rem;
+  --ew-spacer-4: 1.5rem;
+  --ew-spacer-5: 2;
+  --ew-spacer-6: 3;
+
+  --ew-aspect-ratio-video: 16 / 9;
+}
