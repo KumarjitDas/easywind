@@ -22,13 +22,13 @@ type src\easywind.css >> dist\easywind.css
 type generated\generated.css >> dist\easywind.css
 
 :: Step 4: Minify CSS
-echo Minifying CSS...
+:: echo Minifying CSS...
 :: npx.cmd postcss dist/easywind.css --use cssnano -o dist/easywind.min.css
-npx postcss-cli dist/easywind.css --use cssnano -o dist/easywind.min.css
-if %errorlevel% neq 0 (
-    echo Minification failed.
-    exit /b 1
-)
+:: npx postcss-cli dist/easywind.css --use cssnano -o dist/easywind.min.css
+:: if %errorlevel% neq 0 (
+::     echo Minification failed.
+::     exit /b 1
+:: )
 
 :: Step 5: Complete
 echo.
