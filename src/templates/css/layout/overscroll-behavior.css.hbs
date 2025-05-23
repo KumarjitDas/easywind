@@ -1,0 +1,34 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  {{#each ../behaviors as |behavior|}}
+  .{{bp_name}}\:overscroll-{{behavior}} {
+    overscroll-behavior: {{behavior}};
+  }
+  .{{bp_name}}\:overscroll-x-{{behavior}} {
+    overscroll-behavior-x: {{behavior}};
+  }
+  .{{bp_name}}\:overscroll-y-{{behavior}} {
+    overscroll-behavior-y: {{behavior}};
+  }
+  {{/each}}
+
+}
+  {{else}}
+{{#each ../behaviors as |behavior|}}
+.overscroll-{{behavior}},
+.{{bp_name}}\:overscroll-{{behavior}} {
+  overscroll-behavior: {{behavior}};
+}
+.overscroll-x-{{behavior}},
+.{{bp_name}}\:overflow-x-{{behavior}} {
+  overscroll-behavior-x: {{behavior}};
+}
+.overscroll-y-{{behavior}},
+.{{bp_name}}\:overflow-y-{{behavior}} {
+  overscroll-behavior-y: {{behavior}};
+}
+{{/each}}
+  {{/if}}
+{{/each}}

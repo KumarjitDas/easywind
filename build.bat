@@ -4,7 +4,7 @@ echo.
 
 :: Step 1: Generate CSS using JavaScript
 echo Generating repetitive CSS...
-node src\generate.js
+node src\js\generate.js
 if %errorlevel% neq 0 (
     echo Failed to generate CSS.
     exit /b 1

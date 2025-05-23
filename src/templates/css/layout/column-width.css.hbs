@@ -1,0 +1,48 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  .{{bp_name}}\:column-width-auto {
+    column-width: auto;
+  }
+  .{{bp_name}}\:column-width-min {
+    column-width: min-content;
+  }
+  .{{bp_name}}\:column-width-max {
+    column-width: max-content;
+  }
+  .{{bp_name}}\:column-width-fit {
+    column-width: fit-content;
+  }
+  {{#each ../spacers as |spacer|}}
+  .{{bp_name}}\:column-width-{{spacer}} {
+    column-width: var(--ew-spacer-{{spacer}});
+  }
+  {{/each}}
+
+}
+  {{else}}
+.column-width-auto,
+.{{bp_name}}\:column-width-auto {
+  column-width: auto;
+}
+.column-width-min,
+.{{bp_name}}\:column-width-min {
+  column-width: min-content;
+}
+.column-width-max,
+.{{bp_name}}\:column-width-max {
+  column-width: max-content;
+}
+.column-width-fit,
+.{{bp_name}}\:column-width-fit {
+  column-width: fit-content;
+}
+{{#each ../spacers as |spacer|}}
+.column-width-{{spacer}},
+.{{bp_name}}\:column-width-{{spacer}} {
+  column-width: var(--ew-spacer-{{spacer}});
+}
+{{/each}}
+  {{/if}}
+{{/each}}

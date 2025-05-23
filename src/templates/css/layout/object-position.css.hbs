@@ -1,0 +1,20 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  {{#each ../positions as |pos_val pos_key|}}
+  .{{bp_name}}\:object-{{pos_key}} {
+    object-position: {{pos_val}};
+  }
+  {{/each}}
+
+}
+  {{else}}
+{{#each ../positions as |pos_val pos_key|}}
+.object-{{pos_key}},
+.{{bp_name}}\:object-{{pos_key}} {
+  object-position: {{pos_val}};
+}
+{{/each}}
+  {{/if}}
+{{/each}}

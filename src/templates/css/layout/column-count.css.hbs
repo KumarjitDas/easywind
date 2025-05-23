@@ -1,0 +1,20 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  {{#each ../columns as |column|}}
+  .{{bp_name}}\:column-count-{{column}} {
+    column-count: {{column}};
+  }
+  {{/each}}
+
+}
+  {{else}}
+{{#each ../columns as |column|}}
+.column-count-{{column}},
+.{{bp_name}}\:column-count-{{column}} {
+  column-count: {{column}};
+}
+{{/each}}
+  {{/if}}
+{{/each}}

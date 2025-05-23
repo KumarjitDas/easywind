@@ -1,0 +1,23 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  .{{bp_name}}\:isolate {
+    isolation: isolate;
+  }
+  .{{bp_name}}\:isolate-auto {
+    isolation: auto;
+  }
+
+}
+  {{else}}
+.isolate,
+.{{bp_name}}\:isolate {
+  isolation: isolate;
+}
+.isolate-auto,
+.{{bp_name}}\:isolate-auto {
+  isolation: auto;
+}
+  {{/if}}
+{{/each}}

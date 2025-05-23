@@ -38,7 +38,7 @@ function clearCSS(relPath) {
     throw Error('Relative path cannot be empty.');
   }
 
-  const fileWithExt = `../../generated/${relPath}.css`;
+  const fileWithExt = `../../generated/easywind/${relPath}.css`;
   const fullPath = getFullPath(fileWithExt);
 
   if (fs.existsSync(fullPath)) {
@@ -48,7 +48,7 @@ function clearCSS(relPath) {
 
 function appendCSS(relPath, cssContent) {
   const generatedDir = createGeneratedDir();
-  const fileNameWithExt = `${relPath}.css`;
+  const fileNameWithExt = `easywind/${relPath}.css`;
   const parts = fileNameWithExt.split('/');
 
   if (parts.length > 1) {
@@ -68,8 +68,32 @@ function appendCSS(relPath, cssContent) {
 }
 
 function setHandlebarHelpers() {
+  Handlebars.registerHelper('not', (x) => {
+    return !x;
+  });
+  Handlebars.registerHelper('or', (a, b) => {
+    return a || b;
+  });
+  Handlebars.registerHelper('and', (a, b) => {
+    return a && b;
+  });
   Handlebars.registerHelper('eq', (a, b) => {
     return a === b;
+  });
+  Handlebars.registerHelper('lt', (a, b) => {
+    return a < b;
+  });
+  Handlebars.registerHelper('gt', (a, b) => {
+    return a > b;
+  });
+  Handlebars.registerHelper('le', (a, b) => {
+    return a <= b;
+  });
+  Handlebars.registerHelper('ge', (a, b) => {
+    return a >= b;
+  });
+  Handlebars.registerHelper('abs', (x) => {
+    return Math.abs(x);
   });
 }
 

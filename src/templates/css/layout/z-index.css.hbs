@@ -1,0 +1,27 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  .{{bp_name}}\:z-auto {
+    z-index: auto;
+  }
+  {{#each ../indices as |index|}}
+  .{{bp_name}}\:{{#if (lt index 0)}}-{{/if}}z-{{abs index}} {
+    z-index: {{index}};
+  }
+  {{/each}}
+
+}
+  {{else}}
+.z-auto,
+.{{bp_name}}\:z-auto {
+  z-index: auto;
+}
+{{#each ../indices as |index|}}
+.{{#if (lt index 0)}}-{{/if}}z-{{abs index}},
+.{{bp_name}}\:{{#if (lt index 0)}}-{{/if}}z-{{abs index}} {
+  z-index: {{index}};
+}
+{{/each}}
+  {{/if}}
+{{/each}}

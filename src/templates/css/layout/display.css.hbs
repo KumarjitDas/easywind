@@ -1,0 +1,200 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  .{{bp_name}}\:inline {
+    display: inline;
+  }
+  .{{bp_name}}\:block {
+    display: block;
+  }
+  .{{bp_name}}\:inline-block {
+    display: inline-block;
+  }
+  .{{bp_name}}\:flow-root {
+    display: flow-root;
+  }
+  .{{bp_name}}\:flex {
+    display: flex;
+  }
+  .{{bp_name}}\:inline-flex {
+    display: inline-flex;
+  }
+  .{{bp_name}}\:grid {
+    display: grid;
+  }
+  .{{bp_name}}\:inline-grid {
+    display: inline-grid;
+  }
+  .{{bp_name}}\:contents {
+    display: contents;
+  }
+  .{{bp_name}}\:table {
+    display: table;
+  }
+  .{{bp_name}}\:inline-table {
+    display: inline-table;
+  }
+  .{{bp_name}}\:table-caption {
+    display: table-caption;
+  }
+  .{{bp_name}}\:table-cell {
+    display: table-cell;
+  }
+  .{{bp_name}}\:table-column {
+    display: table-column;
+  }
+  .{{bp_name}}\:table-column-group {
+    display: table-column-group;
+  }
+  .{{bp_name}}\:table-footer-group {
+    display: table-footer-group;
+  }
+  .{{bp_name}}\:table-header-group {
+    display: table-header-group;
+  }
+  .{{bp_name}}\:table-row-group {
+    display: table-row-group;
+  }
+  .{{bp_name}}\:table-row {
+    display: table-row;
+  }
+  .{{bp_name}}\:list-item {
+    display: list-item;
+  }
+  .{{bp_name}}\:hidden {
+    display: none;
+  }
+  .{{bp_name}}\:sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .{{bp_name}}\:not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+}
+  {{else}}
+.inline,
+.{{bp_name}}\:inline {
+  display: inline;
+}
+.block,
+.{{bp_name}}\:block {
+  display: block;
+}
+.inline-block,
+.{{bp_name}}\:inline-block {
+  display: inline-block;
+}
+.flow-root,
+.{{bp_name}}\:flow-root {
+  display: flow-root;
+}
+.flex,
+.{{bp_name}}\:flex {
+  display: flex;
+}
+.inline-flex,
+.{{bp_name}}\:inline-flex {
+  display: inline-flex;
+}
+.grid,
+.{{bp_name}}\:grid {
+  display: grid;
+}
+.inline-grid,
+.{{bp_name}}\:inline-grid {
+  display: inline-grid;
+}
+.contents,
+.{{bp_name}}\:contents {
+  display: contents;
+}
+.table,
+.{{bp_name}}\:table {
+  display: table;
+}
+.inline-table,
+.{{bp_name}}\:inline-table {
+  display: inline-table;
+}
+.table-caption,
+.{{bp_name}}\:table-caption {
+  display: table-caption;
+}
+.table-cell,
+.{{bp_name}}\:table-cell {
+  display: table-cell;
+}
+.table-column,
+.{{bp_name}}\:table-column {
+  display: table-column;
+}
+.table-column-group,
+.{{bp_name}}\:table-column-group {
+  display: table-column-group;
+}
+.table-footer-group,
+.{{bp_name}}\:table-footer-group {
+  display: table-footer-group;
+}
+.table-header-group,
+.{{bp_name}}\:table-header-group {
+  display: table-header-group;
+}
+.table-row-group,
+.{{bp_name}}\:table-row-group {
+  display: table-row-group;
+}
+.table-row,
+.{{bp_name}}\:table-row {
+  display: table-row;
+}
+.list-item,
+.{{bp_name}}\:list-item {
+  display: list-item;
+}
+.hidden,
+.{{bp_name}}\:hidden {
+  display: none;
+}
+.sr-only,
+.{{bp_name}}\:sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.not-sr-only,
+.{{bp_name}}\:not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+  {{/if}}
+{{/each}}

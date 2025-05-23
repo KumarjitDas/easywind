@@ -1,0 +1,213 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  .{{bp_name}}\:inset-auto {
+    inset: auto;
+  }
+  .{{bp_name}}\:inset-x-auto {
+    inset-inline: auto;
+  }
+  .{{bp_name}}\:inset-y-auto {
+    inset-block: auto;
+  }
+  .{{bp_name}}\:top-auto {
+    top: auto;
+  }
+  .{{bp_name}}\:right-auto {
+    right: auto;
+  }
+  .{{bp_name}}\:bottom-auto {
+    bottom: auto;
+  }
+  .{{bp_name}}\:left-auto {
+    left: auto;
+  }
+  {{#each ../spacers as |spacer|}}
+  .{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}inset-{{abs spacer}} {
+    inset: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+  }
+  .{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}inset-x-{{abs spacer}} {
+    inset-inline: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+  }
+  .{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}inset-y-{{abs spacer}} {
+    inset-block: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+  }
+  .{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}top-{{abs spacer}} {
+    top: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+  }
+  .{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}right-{{abs spacer}} {
+    right: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+  }
+  .{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}bottom-{{abs spacer}} {
+    bottom: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+  }
+  .{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}left-{{abs spacer}} {
+    left: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+  }
+  {{/each}}
+  {{#each ../percents as |percent|}}
+    {{#if (or (eq percent 100) (eq percent -100))}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}inset-full,
+    {{/if}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}inset-{{abs percent}}per {
+    inset: {{percent}}{{#if percent}}%{{/if}};
+  }
+    {{#if (or (eq percent 100) (eq percent -100))}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}inset-x-full,
+    {{/if}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}inset-{{abs percent}}per {
+    inset-inline: {{percent}}{{#if percent}}%{{/if}};
+  }
+    {{#if (or (eq percent 100) (eq percent -100))}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}inset-y-full,
+    {{/if}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}inset-{{abs percent}}per {
+    inset-block: {{percent}}{{#if percent}}%{{/if}};
+  }
+    {{#if (or (eq percent 100) (eq percent -100))}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}top-full,
+    {{/if}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}top-{{abs percent}}per {
+    top: {{percent}}{{#if percent}}%{{/if}};
+  }
+    {{#if (or (eq percent 100) (eq percent -100))}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}right-full,
+    {{/if}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}right-{{abs percent}}per {
+    right: {{percent}}{{#if percent}}%{{/if}};
+  }
+    {{#if (or (eq percent 100) (eq percent -100))}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}bottom-full,
+    {{/if}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}bottom-{{abs percent}}per {
+    bottom: {{percent}}{{#if percent}}%{{/if}};
+  }
+    {{#if (or (eq percent 100) (eq percent -100))}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}left-full,
+    {{/if}}
+  .{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}left-{{abs percent}}per {
+    left: {{percent}}{{#if percent}}%{{/if}};
+  }
+  {{/each}}
+
+}
+  {{else}}
+.inset-auto,
+.{{bp_name}}\:inset-auto {
+  inset: auto;
+}
+.inset-x-auto,
+.{{bp_name}}\:inset-x-auto {
+  inset-inline: auto;
+}
+.inset-y-auto,
+.{{bp_name}}\:inset-y-auto {
+  inset-block: auto;
+}
+.top-auto,
+.{{bp_name}}\:top-auto {
+  top: auto;
+}
+.right-auto,
+.{{bp_name}}\:right-auto {
+  right: auto;
+}
+.bottom-auto,
+.{{bp_name}}\:bottom-auto {
+  bottom: auto;
+}
+.left-auto,
+.{{bp_name}}\:left-auto {
+  left: auto;
+}
+{{#each ../spacers as |spacer|}}
+.{{#if (lt spacer 0)}}-{{/if}}inset-{{abs spacer}},
+.{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}inset-{{abs spacer}} {
+  inset: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+}
+.{{#if (lt spacer 0)}}-{{/if}}inset-x-{{abs spacer}},
+.{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}inset-x-{{abs spacer}} {
+  inset-inline: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+}
+.{{#if (lt spacer 0)}}-{{/if}}inset-y-{{abs spacer}},
+.{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}inset-y-{{abs spacer}} {
+  inset-block: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+}
+.{{#if (lt spacer 0)}}-{{/if}}top-{{abs spacer}},
+.{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}top-{{abs spacer}} {
+  top: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+}
+.{{#if (lt spacer 0)}}-{{/if}}right-{{abs spacer}},
+.{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}right-{{abs spacer}} {
+  right: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+}
+.{{#if (lt spacer 0)}}-{{/if}}bottom-{{abs spacer}},
+.{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}bottom-{{abs spacer}} {
+  bottom: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+}
+.{{#if (lt spacer 0)}}-{{/if}}left-{{abs spacer}},
+.{{bp_name}}\:{{#if (lt spacer 0)}}-{{/if}}left-{{abs spacer}} {
+  left: {{#if (lt spacer 0)}}calc(-1 * var(--ew-spacer-{{abs spacer}})){{else}}var(--ew-spacer-{{spacer}}){{/if}};
+}
+{{/each}}
+{{#each ../percents as |percent|}}
+  {{#if (or (eq percent 100) (eq percent -100))}}
+.{{#if (lt percent 0)}}-{{/if}}inset-full,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}inset-full,
+  {{/if}}
+.{{#if (lt percent 0)}}-{{/if}}inset-{{abs percent}}per,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}inset-{{abs percent}}per {
+  inset: {{percent}}{{#if percent}}%{{/if}};
+}
+  {{#if (or (eq percent 100) (eq percent -100))}}
+.{{#if (lt percent 0)}}-{{/if}}inset-x-full,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}inset-x-full,
+  {{/if}}
+.{{#if (lt percent 0)}}-{{/if}}inset-x-{{abs percent}}per,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}inset-{{abs percent}}per {
+  inset-inline: {{percent}}{{#if percent}}%{{/if}};
+}
+  {{#if (or (eq percent 100) (eq percent -100))}}
+.{{#if (lt percent 0)}}-{{/if}}inset-y-full,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}inset-y-full,
+  {{/if}}
+.{{#if (lt percent 0)}}-{{/if}}inset-y-{{abs percent}}per,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}inset-{{abs percent}}per {
+  inset-block: {{percent}}{{#if percent}}%{{/if}};
+}
+  {{#if (or (eq percent 100) (eq percent -100))}}
+.{{#if (lt percent 0)}}-{{/if}}top-full,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}top-full,
+  {{/if}}
+.{{#if (lt percent 0)}}-{{/if}}top-{{abs percent}}per,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}top-{{abs percent}}per {
+  top: {{percent}}{{#if percent}}%{{/if}};
+}
+  {{#if (or (eq percent 100) (eq percent -100))}}
+.{{#if (lt percent 0)}}-{{/if}}right-full,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}right-full,
+  {{/if}}
+.{{#if (lt percent 0)}}-{{/if}}right-{{abs percent}}per,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}right-{{abs percent}}per {
+  right: {{percent}}{{#if percent}}%{{/if}};
+}
+  {{#if (or (eq percent 100) (eq percent -100))}}
+.{{#if (lt percent 0)}}-{{/if}}bottom-full,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}bottom-full,
+  {{/if}}
+.{{#if (lt percent 0)}}-{{/if}}bottom-{{abs percent}}per,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}bottom-{{abs percent}}per {
+  bottom: {{percent}}{{#if percent}}%{{/if}};
+}
+  {{#if (or (eq percent 100) (eq percent -100))}}
+.{{#if (lt percent 0)}}-{{/if}}left-full,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}left-full,
+  {{/if}}
+.{{#if (lt percent 0)}}-{{/if}}left-{{abs percent}}per,
+.{{bp_name}}\:{{#if (lt percent 0)}}-{{/if}}left-{{abs percent}}per {
+  left: {{percent}}{{#if percent}}%{{/if}};
+}
+{{/each}}
+  {{/if}}
+{{/each}}

@@ -1,0 +1,20 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  {{#each ../fits as |fit|}}
+  .{{bp_name}}\:object-{{fit}} {
+    object-fit: {{fit}};
+  }
+  {{/each}}
+
+}
+  {{else}}
+{{#each ../fits as |fit|}}
+.object-{{fit}},
+.{{bp_name}}\:object-{{fit}} {
+  object-fit: {{fit}};
+}
+{{/each}}
+  {{/if}}
+{{/each}}

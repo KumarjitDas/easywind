@@ -1,0 +1,20 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  {{#each ../floats as |float|}}
+  .{{bp_name}}\:float-{{float}} {
+    float: {{float}};
+  }
+  {{/each}}
+
+}
+  {{else}}
+{{#each ../floats as |float|}}
+.float-{{float}},
+.{{bp_name}}\:float-{{float}} {
+  float: {{float}};
+}
+{{/each}}
+  {{/if}}
+{{/each}}

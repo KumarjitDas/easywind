@@ -1,8 +1,7 @@
 {{#each breakPoints as |bp_size bp_name|}}
-
   {{#if bp_size}}
-
 @media (min-width: {{bp_size}}px) {
+
   .{{bp_name}}\:aspect-auto {
     aspect-ratio: auto;
   }
@@ -13,16 +12,14 @@
   .{{bp_name}}\:aspect-video {
     aspect-ratio: var(--ew-aspect-ratio-video, 16 / 9);
   }
-
   {{#each ../aspectRatios as |ratio|}}
   .{{bp_name}}\:aspect-{{ratio.[0]}}\/{{ratio.[1]}} {
     aspect-ratio: {{ratio.[0]}} / {{ratio.[1]}};
   }
   {{/each}}
+
 }
-
   {{else}}
-
 .aspect-auto,
 .{{bp_name}}\:aspect-auto {
   aspect-ratio: auto;
@@ -37,14 +34,11 @@
 .{{bp_name}}\:aspect-video {
   aspect-ratio: var(--ew-aspect-ratio-video, 16 / 9);
 }
-
 {{#each ../aspectRatios as |ratio|}}
 .aspect-{{ratio.[0]}}\/{{ratio.[1]}},
 .{{bp_name}}\:aspect-{{ratio.[0]}}\/{{ratio.[1]}} {
   aspect-ratio: {{ratio.[0]}} / {{ratio.[1]}};
 }
 {{/each}}
-
   {{/if}}
-
 {{/each}}

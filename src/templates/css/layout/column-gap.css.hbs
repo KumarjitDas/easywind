@@ -1,0 +1,31 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  {{#each ../spacers as |spacer|}}
+  .{{bp_name}}\:column-gap-{{spacer}} {
+    column-gap: var(--ew-spacer-{{spacer}});
+  }
+  {{/each}}
+  {{#each ../percents as |percent|}}
+  .{{bp_name}}\:column-gap-{{percent}}per {
+    column-gap: {{percent}}{{#if percent}}%{{/if}};
+  }
+  {{/each}}
+
+}
+  {{else}}
+{{#each ../spacers as |spacer|}}
+.column-gap-{{spacer}},
+.{{bp_name}}\:column-gap-{{spacer}} {
+  column-gap: var(--ew-spacer-{{spacer}});
+}
+{{/each}}
+{{#each ../percents as |percent|}}
+.column-gap-{{percent}}per,
+.{{bp_name}}\:column-gap-{{percent}}per {
+  column-gap: {{percent}}{{#if percent}}%{{/if}};
+}
+{{/each}}
+  {{/if}}
+{{/each}}

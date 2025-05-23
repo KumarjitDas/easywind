@@ -1,0 +1,20 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  {{#each ../breaks as |break|}}
+  .{{bp_name}}\:break-inside-{{break}} {
+    break-inside: {{break}};
+  }
+  {{/each}}
+
+}
+  {{else}}
+{{#each ../breaks as |break|}}
+.break-inside-{{break}},
+.{{bp_name}}\:break-inside-{{break}} {
+  break-inside: {{break}};
+}
+{{/each}}
+  {{/if}}
+{{/each}}

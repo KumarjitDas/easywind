@@ -1,0 +1,20 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  {{#each ../clears as |clear|}}
+  .{{bp_name}}\:clear-{{clear}} {
+    clear: {{clear}};
+  }
+  {{/each}}
+
+}
+  {{else}}
+{{#each ../clears as |clear|}}
+.clear-{{clear}},
+.{{bp_name}}\:clear-{{clear}} {
+  clear: {{clear}};
+}
+{{/each}}
+  {{/if}}
+{{/each}}

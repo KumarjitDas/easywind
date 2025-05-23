@@ -1,0 +1,32 @@
+{{#each breakPoints as |bp_size bp_name|}}
+  {{#if bp_size}}
+@media (min-width: {{bp_size}}px) {
+
+  {{#each ../breaks as |break|}}
+    {{#if (eq break 'all')}}
+  /*noinspection CssInvalidPropertyValue,CssOverwrittenProperties*/
+    {{/if}}
+  .{{bp_name}}\:break-after-{{break}} {
+    {{#if (eq break 'all')}}
+    break-after: always;
+    {{/if}}
+    break-after: {{break}};
+  }
+  {{/each}}
+
+}
+  {{else}}
+{{#each ../breaks as |break|}}
+  {{#if (eq break 'all')}}
+/*noinspection CssInvalidPropertyValue,CssOverwrittenProperties*/
+  {{/if}}
+.break-after-{{break}},
+.{{bp_name}}\:break-after-{{break}} {
+{{#if (eq break 'all')}}
+  break-after: always;
+{{/if}}
+  break-after: {{break}};
+}
+{{/each}}
+  {{/if}}
+{{/each}}
